@@ -1,0 +1,43 @@
+-- Project: Student Performance Analysis
+
+-- Show all students
+SELECT * FROM students;
+
+-- Students scoring more than 80
+SELECT * FROM students
+WHERE marks > 80;
+
+-- Students from Mumbai
+SELECT * FROM students
+WHERE city = 'Mumbai';
+
+-- Average marks
+SELECT AVG(marks) FROM students;
+
+-- Students per city
+SELECT city, COUNT(*)
+FROM students
+GROUP BY city;
+
+-- Top 3 students
+SELECT * FROM students
+ORDER BY marks DESC
+LIMIT 3;
+
+-- Average marks per city
+SELECT city, AVG(marks)
+FROM students
+GROUP BY city;
+
+-- Cities with avg marks > 80
+SELECT city, AVG(marks)
+FROM students
+GROUP BY city
+HAVING AVG(marks) > 80;
+
+-- City with highest avg marks
+SELECT city, AVG(marks)
+FROM students
+GROUP BY city
+ORDER BY AVG(marks) DESC
+LIMIT 1;
